@@ -8,7 +8,7 @@ import gnupg
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-app = Flask(__name__)
+decryprtion_over_cloud_run = Flask(__name__)
 storage_client = storage.Client()
 gpg = gnupg.GPG()
 
@@ -35,7 +35,7 @@ def fetch_conf_details(bucket_name, conf_file_name):
         return None
 
 # Endpoint for decryption
-@app.route("/decryption", methods=['GET'])
+@decryprtion_over_cloud_run.route("/decryption", methods=['GET'])
 def decrypt():
     conf_path = request.args.get('conf_path')
     if not conf_path:
@@ -79,4 +79,4 @@ def decrypt():
         return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    decryprtion_over_cloud_run.run(host="0.0.0.0", port=8080)
