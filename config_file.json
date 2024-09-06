@@ -1,0 +1,8 @@
+{
+	"gpg_private_key" : "<secret_manager_path>",
+    "gpg_passphrase" : "<secret_manager_path>",
+    "gpg_filename" : "encrypt.txt.asc",
+    "gcs_file_path_encrypt" : "gpg_encrypted_files/",
+    "gcs_bucket" : "bucket_name",
+	"gcs_file_path_decrypt" : "gpg_encrypted_files/"
+}
